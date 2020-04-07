@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // import the prop types
 
 function CourseList(props) {
     return (
@@ -25,5 +26,19 @@ function CourseList(props) {
     )
 }
 
+// ****************  
+// Document and validate props 
+// Defining the PropTypes is only good for dev process, they dont run in production builds
+CourseList.propTypes = {
+    courses: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequiered,
+            title: PropTypes.string.isRequiered,
+            authorId: PropTypes.number.isRequiered,
+            category: PropTypes.string.isRequiered
+        })
+    ).isRequired
+};
+// ****************  
 
 export default CourseList;
