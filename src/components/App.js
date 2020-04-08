@@ -14,7 +14,7 @@ function App() {
             <Route path='/' exact component={HomePage} /> {/* load HomePage when the path is empty */}
             <Route path='/courses' component={CoursesPage} />
             <Route path='/about' component={AboutPage} />
-            <Route path="/course" component={ManageCoursePage} />
+            <Route path="/course/:slug" component={ManageCoursePage} />
             <Redirect from="/about-page" to="/about" />
             <Route component={NotFoundPage} />
         </Switch>
