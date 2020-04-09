@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 // import { Prompt } from "react-router-dom";
 import CourseForm from './CourseForm';
 import * as courseApi from '../api/courseApi';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';  //not needed for props.history.push
+import { toast } from 'react-toastify';
 
 // functional component with arrow function
 const ManageCoursePage = props => {
@@ -24,6 +25,7 @@ const ManageCoursePage = props => {
         event.preventDefault(); // prevent refreshing the input after submit
         courseApi.saveCourse(course).then(() => {
             props.history.push("/courses");
+            toast.success('Course Saved.');
         });
     }
 
