@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import { Prompt } from "react-router-dom";
 import CourseForm from './CourseForm';
 import * as courseApi from '../api/courseApi';
+import { Redirect } from 'react-router-dom';
 
 // functional component with arrow function
 const ManageCoursePage = props => {
@@ -21,7 +22,9 @@ const ManageCoursePage = props => {
 
     function handleSubmit(event) {
         event.preventDefault(); // prevent refreshing the input after submit
-        courseApi.saveCourse(course);
+        courseApi.saveCourse(course).then(() => {
+            props.history.push("/courses");
+        });
     }
 
     return (
